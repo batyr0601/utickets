@@ -4,8 +4,8 @@ import './index.css';
 import App from './App';
 import SignIn from './SignIn'
 
-var right = false;
-if (right) {
+var signIn = false;
+if (signIn) {
     ReactDOM.render(
         <React.StrictMode>
             <App />
