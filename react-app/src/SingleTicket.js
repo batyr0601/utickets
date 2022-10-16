@@ -11,7 +11,7 @@ import Error from './Error'
 import { Link, useParams } from 'react-router-dom'
 function SingleTicket() {
 
-    const ref = query(collection(db, "todos"), where("id", "==", "sTgIbsYFK4B6iyEylhFi"));
+    // const ref = query(collection(db, "todos"), where("id", "==", "sTgIbsYFK4B6iyEylhFi"));
 
     // const query = useFirestoreQuery(["todos"], ref);
 

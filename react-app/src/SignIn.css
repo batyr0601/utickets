@@ -1,0 +1,22 @@
+
+#UTickets {
+    width:33%;
+    height: auto;
+    margin-left: 33%;
+    margin-right: 33%;
+    margin-top: 10%;
+}
+
+body {
+    background-color: rgb(193, 193, 193);
+}
+
+#signInButton {
+    width: 10%;
+    padding-top: 25px;
+    margin-left: 45%;
+    margin-right: 45%;
+    border: none;
+    height: auto;
+    background: none;
+}

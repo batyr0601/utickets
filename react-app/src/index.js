@@ -25,7 +25,8 @@ const auth = getAuth(app)
 const db = getFirestore(app);
 
 const provider = new GoogleAuthProvider();
-var user = null;
+global.user = null;
+
 
 
 controller();
@@ -45,7 +46,7 @@ function onInfoButtonSubmit(docId) {
                 fname: fname.value,
                 lname: lname.value,
                 phone: phone.value,
-                uid: user.uid
+                uid: global.user.uid
             });
 
         } else {
@@ -54,7 +55,7 @@ function onInfoButtonSubmit(docId) {
                 fname: fname.value,
                 lname: lname.value,
                 phone: phone.value,
-                uid: user.uid
+                uid: global.user.uid
             });
         }
         
@@ -64,7 +65,7 @@ function onInfoButtonSubmit(docId) {
 
         const messageDiv = document.getElementById("errorMessageDiv")
 
-        messageDiv.innerHTML = "<p id='errorMessage'>some information wasn't complete</p>"
+        messageDiv.innerHTML = "<p id='errorMessage'>please fill out all the information</p>"
         
     }
     
@@ -92,7 +93,7 @@ async function renderInfo() {
         document.getElementById('root')
     );
 
-    let q = query(collection(db, "Users"), where("uid", "==", user.uid));
+    let q = query(collection(db, "Users"), where("uid", "==", global.user.uid));
     let q2 = await getDocs(q);
     let userDocId = null;
     if(q2.size > 0) {
@@ -129,7 +130,7 @@ function renderSignIn() {
 
 async function queryResultAndRenderNextScreen() {
         
-    const q = query(collection(db, "Users"), where("uid", "==", user.uid));
+    const q = query(collection(db, "Users"), where("uid", "==", global.user.uid));
     const q2 = await getDocs(q);
     if (q2.size > 0) {
         renderTicketScreen();
@@ -146,13 +147,13 @@ function controller() {
 
         if (u) {
     
-            user = u
+            global.user = u
 
             queryResultAndRenderNextScreen();
     
         } else {
     
-            user = null
+            global.user = null
         
             renderSignIn();
         }
