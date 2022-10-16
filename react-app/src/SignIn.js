@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { TextField, Button } from '@mui/material';
 import Todo from './components/Todo';
-import { db } from './firebase.js';
-import { collection , query, orderBy , onSnapshot, addDoc,serverTimestamp} from 'firebase/firestore';
-import './App.css';
+import './SignIn.css';
 
-const q = query(collection(db, 'todos'), orderBy('timestamp', 'desc'));
+
+
 function SignIn() {
   return (
-    <h2> signin</h2>
-  )
+    <div>
+      <h2>Sign In To Use UTickets</h2>
+      <Button id="signInButton">Sign In With Google</Button>
+    </div>
+    )
 }
 
 export default SignIn;
