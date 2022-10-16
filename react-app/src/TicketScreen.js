@@ -8,6 +8,8 @@ import Error from './Error';
 import Home from './Home'
 import SharedLayout from './SharedLayout'
 import SingleTicket from './SingleTicket'
+import ConfirmBuy from './ConfirmBuy'
+import PurchaseComplete from './PurchaseComplete'
 
 import { collection, query, orderBy, onSnapshot, addDoc, serverTimestamp } from 'firebase/firestore';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
@@ -47,6 +49,9 @@ function TicketsScreen() {
           <Route index element={<Home />} />
           <Route path="tickets" element={<TicketsListed />} />
           <Route path="tickets/:ticketId" element={<SingleTicket />} />
+          <Route path="tickets/:ticketId/confirm" element={<ConfirmBuy />} />
+          <Route path="tickets/:ticketId/confirm/complete" element={<PurchaseComplete />} />
+
           <Route path="sellticket" element={<SellTicket />} />
           <Route path="*" element={<Error />} />
         </Route>

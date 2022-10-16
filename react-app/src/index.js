@@ -7,6 +7,7 @@ import Info from './Info';
 import { initializeApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut} from "firebase/auth";
 import { getFirestore, collection, query, where, addDoc, getDocs, getDoc, doc, setDoc } from 'firebase/firestore';
+import { createContext } from 'react';
 
 
 const firebaseConfig = {
@@ -27,8 +28,6 @@ const db = getFirestore(app);
 const provider = new GoogleAuthProvider();
 global.user = null;
 
-
-
 controller();
 
 function onInfoButtonSubmit(docId) {
@@ -38,9 +37,9 @@ function onInfoButtonSubmit(docId) {
     const phone = document.getElementById("phone");
 
 
-    if (fname.value != "" && lname.value != "" && email.value != "" && phone.value != "") {
+    if (fname.value !== "" && lname.value !== "" && email.value !== "" && phone.value !== "") {
 
-        if (docId != null){
+        if (docId !== null){
             setDoc(doc(db, "Users", docId), {
                 email: email.value,
                 fname: fname.value,
@@ -98,7 +97,6 @@ async function renderInfo() {
     let userDocId = null;
     if(q2.size > 0) {
         userDocId = q2.docs[0].id;
-
         if (userDocId) {
             q = query(doc(db, "Users", userDocId))
             q2 = await getDoc(q)
