@@ -12,7 +12,7 @@ function SignIn() {
       <img src="/images/UTickets.png" id="UTickets"></img>
       <br></br>
 
-      <button id="signInButton"><img src="/images/signInButton.png" id="signInButton"></img></button>
+      <button id="signInButton"><img id="googleImg" src="/images/signInButton.png"></img></button>
     </div>
     )
 }

@@ -11,7 +11,7 @@ import './Info.css';
 function Info() {
   return (
     <div>
-      <img src="./images/UTickets.png"></img>
+      <img id="cornerImg" src="./images/UTickets.png"></img>
       <h2>User Details</h2>
     
         <form>
