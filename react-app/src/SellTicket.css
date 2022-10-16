@@ -1,0 +1,27 @@
+.inputLabels{
+    margin-top: 20px;
+    color:white;
+    font-size: 18px;
+    margin-left: 2px;
+
+
+}
+
+.sellInput {
+    width: 135px;
+    border-end-end-radius: 4px;
+    color: white;
+    background-color: white;
+}
+
+
+
+#ticketInfo{
+    margin-top: 40px;;
+}
+
+#sellButton {
+    margin: 20px;
+    background-color: black;
+    font-size: 12px;
+}

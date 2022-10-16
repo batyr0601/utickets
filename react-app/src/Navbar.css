@@ -1,0 +1,20 @@
+.navButton {
+    background-color: black;
+}
+
+.navLink {
+    color: white;
+}
+
+.navText {
+    color: white;
+    font-size: 15px;
+}
+
+#navbarIcon{
+    margin-right:80%;
+    padding-top: 5px;
+    height: 30px;
+    width: auto;
+
+}

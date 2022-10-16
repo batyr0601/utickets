@@ -8,7 +8,7 @@ function ConfirmBuy() {
 
     }
     return (
-        <div>
+        <div className="App">
             <h3>Are you sure you would like to purchase this ticket?</h3>
             <Link to={{pathname: "complete", state: ticketId}}>YES</Link>
             {/* <Button variant="contained" color="primary" onClick={buyTicket}>YES</Button> */}
