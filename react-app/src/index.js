@@ -7,6 +7,7 @@ import Info from './Info';
 import { initializeApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut} from "firebase/auth";
 import { getFirestore, collection, query, where, addDoc, getDocs, getDoc, doc, setDoc } from 'firebase/firestore';
+import { createContext } from 'react';
 
 
 const firebaseConfig = {
@@ -25,8 +26,7 @@ const auth = getAuth(app)
 const db = getFirestore(app);
 
 const provider = new GoogleAuthProvider();
-var user = null;
-
+global.user = null;
 
 controller();
 
@@ -37,15 +37,15 @@ function onInfoButtonSubmit(docId) {
     const phone = document.getElementById("phone");
 
 
-    if (fname.value != "" && lname.value != "" && email.value != "" && phone.value != "") {
+    if (fname.value !== "" && lname.value !== "" && email.value !== "" && phone.value !== "") {
 
-        if (docId != null){
+        if (docId !== null){
             setDoc(doc(db, "Users", docId), {
                 email: email.value,
                 fname: fname.value,
                 lname: lname.value,
                 phone: phone.value,
-                uid: user.uid
+                uid: global.user.uid
             });
 
         } else {
@@ -54,7 +54,7 @@ function onInfoButtonSubmit(docId) {
                 fname: fname.value,
                 lname: lname.value,
                 phone: phone.value,
-                uid: user.uid
+                uid: global.user.uid
             });
         }
         
@@ -92,12 +92,11 @@ async function renderInfo() {
         document.getElementById('root')
     );
 
-    let q = query(collection(db, "Users"), where("uid", "==", user.uid));
+    let q = query(collection(db, "Users"), where("uid", "==", global.user.uid));
     let q2 = await getDocs(q);
     let userDocId = null;
     if(q2.size > 0) {
         userDocId = q2.docs[0].id;
-
         if (userDocId) {
             q = query(doc(db, "Users", userDocId))
             q2 = await getDoc(q)
@@ -129,7 +128,7 @@ function renderSignIn() {
 
 async function queryResultAndRenderNextScreen() {
         
-    const q = query(collection(db, "Users"), where("uid", "==", user.uid));
+    const q = query(collection(db, "Users"), where("uid", "==", global.user.uid));
     const q2 = await getDocs(q);
     if (q2.size > 0) {
         renderTicketScreen();
@@ -146,13 +145,13 @@ function controller() {
 
         if (u) {
     
-            user = u
+            global.user = u
 
             queryResultAndRenderNextScreen();
     
         } else {
     
-            user = null
+            global.user = null
         
             renderSignIn();
         }
