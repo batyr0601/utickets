@@ -1,0 +1,53 @@
+
+
+label {
+    font-size: 18px;
+
+}
+
+.group{
+    padding:10px;
+    margin: 10px;
+    margin-left: 50px;
+}
+
+.field {
+    height: 60px;
+  box-sizing: border-box;
+  width: 60%;
+    font-size: 18px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  resize: yes;
+  background-color: white;
+
+
+}
+
+h2 {
+    padding-left: 60px;
+    font-size: 40px;
+}
+
+p {
+    color: red;
+    margin-left:60px;
+    font-size: 18px;
+}
+
+img {
+    width: 10%;
+    height: auto;
+    padding: 25px;
+}
+
+#submitInfoButton {
+    width: 70px;
+    font-size: 30px;
+    margin-left:60px;
+    padding-top:10px;
+
+}
+
+
