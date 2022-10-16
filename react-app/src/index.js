@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import TicketScreen from './TicketScreen';
 import SignIn from './SignIn';
+import Navbar from './Navbar';
 import Info from './Info';
 import { initializeApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut} from "firebase/auth";

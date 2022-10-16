@@ -3,9 +3,10 @@ import Navbar from './Navbar';
 
 const Home = () => {
     return (
-        <>
-            <h3>welcome to utickets</h3>
-        </>
+        <div>
+            <img src="/images/background-header.png" class="background" alt="peopleBackground" width="1300" height="400" /> 
+            <img src="/images/UTickets.png" class="logo" alt="logo" width="500" height="500" />
+        </div>
     )
 }
 export default Home;

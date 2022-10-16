@@ -46,7 +46,7 @@ function TicketsScreen() {
       {/* <nav>navbar</nav> */}
       <Routes>
         <Route path="/" element={<SharedLayout />}>
-          <Route index element={<Home />} />
+          <Route index element={<TicketsListed />} />
           <Route path="tickets" element={<TicketsListed />} />
           <Route path="tickets/:ticketId" element={<SingleTicket />} />
           <Route path="tickets/:ticketId/confirm" element={<ConfirmBuy />} />
@@ -59,8 +59,6 @@ function TicketsScreen() {
 
       </Routes>
       {/* <footer>footer</footer> */}
-      <Button id='signOutButton'>Sign out</Button>
-      <Button id='editProfile'>Edit profile</Button>
     </BrowserRouter>
     
   );
