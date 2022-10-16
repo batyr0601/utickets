@@ -7,8 +7,13 @@ import './App.css';
 
 const q = query(collection(db, 'todos'), orderBy('timestamp', 'desc'));
 function App() {
+
   const [todos, setTodos] = useState([]);
   const [input, setInput] = useState('');
+
+  // const [ticketName, setInputName] = useState('');
+  // const [{ticketDate}, setInputDate] = useState(Date());
+
   useEffect(() => {
     onSnapshot(q, (snapshot) => {
       setTodos(snapshot.docs.map(doc => ({
@@ -31,7 +36,9 @@ function App() {
       <form>
         <TextField id="outlined-basic" label="Enter your ticket" variant="outlined" style={{ margin: "0px 5px" }} size="small" value={input}
           onChange={e => setInput(e.target.value)} />
-        
+        {/* <TextField id="outlined-basic" label="Enter your ticket" variant="outlined" style={{ margin: "0px 5px" }} size="small" value={input2}
+          onChange={e => setInput(e.target.value)} /> */}
+        {/* <input type = "date" onChange= {e => setInputDate(e.target.value)}>Date</input> */}
         {/* <input type="text" value={this.state.value} onChange={this.handleChange} /> */}
         {/* <input type="date" id="start" name="trip-start" value={ moment(this.state.item.requested_order_ship_date).format("DD-MMM-YYYY") } min="2018-01-01" max="2018-12-31"> */}
         <Button variant="contained" color="primary" onClick={addTodo}  >Add your ticket</Button>

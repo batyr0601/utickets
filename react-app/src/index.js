@@ -1,14 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import TicketScreen from './TicketScreen';
 import SignIn from './SignIn'
 
-var signIn = false;
+// create a react context to see if the user is logged in
+// react rounter
+// app will have a case switch path
+// /ticket/:id
+// hook from usedParam lets us pull the idea
+// 
+var signIn = true;
 if (signIn) {
     ReactDOM.render(
         <React.StrictMode>
-            <App />
+            <TicketScreen />
         </React.StrictMode>,
         document.getElementById('root')
     );
